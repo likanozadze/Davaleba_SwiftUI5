@@ -11,7 +11,7 @@ import SwiftUI
 struct ProductsView: View {
     @EnvironmentObject var viewModel: MainViewModel
     @State var path = NavigationPath()
-    var category: String
+    var selectedCategory: String
     
     private let gridLayout = [
         GridItem(.flexible()),
@@ -23,15 +23,15 @@ struct ProductsView: View {
             VStack {
                 HeaderComponentView()
                 navigationStack
-               BalanceComponentView()
+                BalanceComponentView()
                     .background(Color.white)
             }
         }
         .onAppear {
-            viewModel.selectedCategory = category
-        
+            viewModel.selectedCategory = selectedCategory
+            viewModel.filterProductsByCategory()
+            
         }
-    
     }
     
     
@@ -39,7 +39,7 @@ struct ProductsView: View {
     
     private var destinationGrid: some View {
         LazyVGrid(columns: gridLayout) {
-            ForEach(viewModel.products) { product in
+            ForEach(viewModel.filteredProducts) { product in
                 productLink(product)
             }
         }
@@ -64,4 +64,14 @@ struct ProductsView: View {
         })
     }
 }
+    
+    extension MainViewModel {
+        func filterProductsByCategory() {
+            if let selectedCategory = selectedCategory {
+                filteredProducts = products.filter { $0.category == selectedCategory }
+            } else {
+                filteredProducts = products
+            }
+        }
+    }
 

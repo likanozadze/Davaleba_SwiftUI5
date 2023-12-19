@@ -54,12 +54,22 @@ struct ProductDetailView: View {
                 .background(.black)
                 .cornerRadius(10)
             }
+            
+            VStack(alignment: .leading) {
+                Button(action: {
+                   
+                }) {
+                    Text("Return to Categories")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white)
+
+                }
+                .padding()
+                .background(.black)
+                .cornerRadius(10)
+            }
+            }
             .padding(.vertical)
             .padding(.horizontal)
         }
     }
-}
-
-//#Preview {
-//    DestinationDetailScreen() .constant(NavigationPath())
-//}

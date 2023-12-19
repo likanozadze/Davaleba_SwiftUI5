@@ -34,6 +34,7 @@ struct BalanceComponentView: View {
                 }) {
                     Text("Checkout")
                         .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white)
                 }
                 .padding()
                 .background(.green)

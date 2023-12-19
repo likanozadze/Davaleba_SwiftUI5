@@ -19,7 +19,8 @@ final class MainViewModel: ObservableObject {
     @Published var errorAlert = false
     @Published var alertMessage = ""
     @Published var selectedCategory: String?
-    @Published var CheckoutSuccessful = false
+    @Published var filteredProducts: [Product] = []
+
     
     // MARK: - Initialization
     init() {
@@ -46,7 +47,7 @@ final class MainViewModel: ObservableObject {
     }
     func addToCart(_ product: Product) {
         
-        ProcessingPurchase = true
+       // ProcessingPurchase = true
         
         self.ProcessingPurchase = false
         

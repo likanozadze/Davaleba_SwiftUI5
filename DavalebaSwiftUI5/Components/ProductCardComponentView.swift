@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ProductCardComponentView: View {
     @EnvironmentObject var viewModel: MainViewModel
     var product: Product
@@ -65,11 +63,12 @@ struct ProductCardComponentView: View {
             viewModel.addToCart(product)
         }) {
             Text("Add to Cart")
-                .font(.system(size: 10))
-                .frame(width: 60, height: 15)
+                .font(.system(size: 12))
+                .fontWeight(.bold)
+                .frame(width: 80, height: 10)
                 .padding()
-                .background(Color(#colorLiteral(red: 0.4474008679, green: 0.8647196889, blue: 0.6508255005, alpha: 1)))
-                .foregroundColor(.black)
+                .background(.green)
+                .foregroundColor(.white)
                 .cornerRadius(10)
         }
     }

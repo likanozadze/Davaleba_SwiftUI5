@@ -13,6 +13,7 @@ struct MainView: View {
     
     @EnvironmentObject var viewModel: MainViewModel
     @State var path = NavigationPath()
+
     
     private let gridLayout = [
         GridItem(.flexible()),
@@ -32,7 +33,7 @@ struct MainView: View {
             }
             
         }
-        .alert(isPresented: $viewModel.CheckoutSuccessful) {
+        .alert(isPresented: $viewModel.successAlert) {
             print("Presenting success alert")
             return Alert(title: Text("Success"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
         }
