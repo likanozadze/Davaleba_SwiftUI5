@@ -34,7 +34,6 @@ struct ProductsView: View {
         }
     }
     
-    
     // MARK: - Destinations Grid
     
     private var destinationGrid: some View {
